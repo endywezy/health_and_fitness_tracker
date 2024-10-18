@@ -27,7 +27,8 @@ Make sure you have the following installed:
 
 
 Check if Node.js is installed correctly:
-node -v
+    ```bash
+    node -v
 This should return the version number. Make sure it's version 12.x.x.
 
 Install MongoDB
