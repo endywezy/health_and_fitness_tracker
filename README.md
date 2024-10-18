@@ -78,9 +78,10 @@ Install Dependencies
 
 
 Configure Environment Variables
-Create a .env file in the root of the project directory and add your MongoDB connection string and JWT secret. For example:
+Create a .env file in the root of the project directory and add your MongoDB connection string and JWT secret. 
 
-      ```bash
+- For example:
+
       Copy
       MONGO_URI=mongodb://localhost:27017/health_tracker
       JWT_SECRET=your_jwt_secret
@@ -143,7 +144,6 @@ You should now be able to run the Health and Fitness Tracker backend and test va
 
 ### Notes
 
-- Replace `<your-repo-url>` with the actual URL of your Git repository.
 - Update the placeholder `<user_id>` with actual user IDs when testing PUT and DELETE requests.
 - Ensure your MongoDB server is running before you start your application.
 
