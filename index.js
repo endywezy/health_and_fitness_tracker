@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const exerciseRoutes = require('./routes/exercise');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 // Middleware
 app.use(bodyParser.json());

@@ -6,7 +6,8 @@
     "lint": "eslint",
     "check-lint": "lint [0-9]*.js",
     "test": "./node_modules/mocha/bin/mocha --require babel-register --exit",
-    "dev": "nodemon --exec babel-node --presets babel-preset-env ./server.js ./database.csv"
+    "dev": "nodemon --exec babel-node --presets babel-preset-env ./server.js ./database.csv",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +19,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.7.1"
+    "mongoose": "^8.7.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
