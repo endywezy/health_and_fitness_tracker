@@ -1,89 +1,113 @@
+### Instructions on how to get started with your backend project using Ubuntu 18.04 LTS and Node.js (version 12.x.x). This document will cover the necessary installations, how to run the project, and how to test the various HTTP methods.
 
-To test your POST, GET, PUT, and DELETE requests, you can use tools like Postman, cURL, or HTTPie to send HTTP requests to your backend API.
+# Health and Fitness Tracker Backend
 
-Here’s how you can use each tool:
+This is the backend for the Health and Fitness Tracker application built using Node.js and Express. It connects to a MongoDB database to manage user authentication and data.
 
-1. Using Postman (GUI tool)
-Steps:
-Install Postman: Download and install it from Postman.
-Create a New Request: Open Postman and create a new request.
-Choose Method: Select the HTTP method you want to test (e.g., POST, GET, DELETE, PUT).
-Enter the URL: Add the URL for your API endpoints (e.g., http://localhost:3000/auth/signup for the signup route).
-Example: Testing the POST (Signup)
-Select POST from the dropdown.
-Set the URL to http://localhost:3000/auth/signup.
-Go to the Body tab, select raw and set it to JSON.
-Add your request body, for example:
-json
-Copy code
-{
-  "username": "testuser",
-  "password": "testpassword"
-}
-Click Send.
-You should receive a response like:
-json
-Copy code
-{
-  "message": "User created"
-}
-Example: Testing the GET (Retrieve User Profile)
-Select GET.
-Set the URL to http://localhost:3000/auth/profile.
-Go to the Headers tab, and add a key Authorization with your JWT token:
-text
-Copy code
-Authorization: Bearer <your_jwt_token>
-Click Send.
-You should receive the user profile response.
-Example: Testing the DELETE (Delete User)
-Select DELETE.
-Set the URL to http://localhost:3000/auth/delete.
-Go to Headers and add the Authorization header as before.
-Click Send.
-You should receive a response like:
-json
-Copy code
-{
-  "message": "User deleted"
-}
-2. Using cURL (Command Line Tool)
-You can use cURL from the command line to test your routes.
+## Getting Started
 
-Example: POST Request for Signup
-bash
-Copy code
-curl -X POST http://localhost:3000/auth/signup \
--H "Content-Type: application/json" \
--d '{"username": "testuser", "password": "testpassword"}'
-Example: GET Request for User Profile
-bash
-Copy code
-curl -X GET http://localhost:3000/auth/profile \
--H "Authorization: Bearer <your_jwt_token>"
-Example: DELETE Request to Delete User
-bash
-Copy code
-curl -X DELETE http://localhost:3000/auth/delete \
--H "Authorization: Bearer <your_jwt_token>"
-3. Using HTTPie (Command Line Tool)
-Similar to cURL, but easier to use.
+### Prerequisites
 
-Example: POST Request for Signup
-bash
+Make sure you have the following installed:
+
+- **Node.js** (version 12.x.x)
+- **npm** (Node package manager)
+- **MongoDB** (for the database)
+
+### Installation Steps
+
+1. **Install Node.js and npm**
+
+   If you don't have Node.js installed, you can use the following commands:
+
+   ```bash
+   sudo apt update
+   sudo apt install nodejs
+   sudo apt install npm
+
+
+Check if Node.js is installed correctly:
+node -v
+This should return the version number. Make sure it's version 12.x.x.
+
+Install MongoDB
+To install MongoDB on Ubuntu 18.04, follow these steps:
+sudo apt update
+sudo apt install -y mongodb
+
+Start the MongoDB service:
+sudo systemctl start mongodb
+
+Enable MongoDB to start on boot:
+sudo systemctl enable mongodb
+
+Verify that MongoDB is running:
+sudo systemctl status mongodb
+
+
+Clone the repository containing the backend code:
+git clone https://github.com/endywezy/health_and_fitness_tracker.git
+cd health_and_fitness_tracker
+
+
+Install Dependencies
+Navigate to your project directory and install the required npm packages:
+npm install
+
+
+Configure Environment Variables
+Create a .env file in the root of the project directory and add your MongoDB connection string and JWT secret. For example:
+plaintext
 Copy code
-http POST http://localhost:3000/auth/signup username=testuser password=testpassword
-Example: GET Request for User Profile
-bash
-Copy code
-http GET http://localhost:3000/auth/profile "Authorization: Bearer <your_jwt_token>"
-Example: DELETE Request to Delete User
-bash
-Copy code
-http DELETE http://localhost:3000/auth/delete "Authorization: Bearer <your_jwt_token>"
-Steps Recap:
-POST: Use this to create new resources (e.g., user signup, create exercise).
-GET: Use this to retrieve resources (e.g., user profile, list of exercises).
-PUT: Use this to update an existing resource (e.g., edit exercise details).
-DELETE: Use this to delete a resource (e.g., delete user account or exercise).
-By using any of these tools, you'll be able to fully test your backend routes and verify they work as expected! Let me know if you need help with specific routes or further details.
+MONGO_URI=mongodb://localhost:27017/health_tracker
+JWT_SECRET=your_jwt_secret
+
+
+Running the Application
+Start the application by running:
+node app.js
+The server should start, and you'll see a message indicating that it's running on the specified port (default is 3002).
+
+Testing the API
+You can use curl, Postman, or any API testing tool to test the API endpoints.
+
+
+
+Test GET Request
+
+To retrieve the welcome message:
+curl -X GET http://localhost:3002/api/
+
+
+To get all users:
+curl -X GET http://localhost:3002/api/users
+Test POST Request
+
+To register a new user:
+curl -X POST http://localhost:3002/api/register -H "Content-Type: application/json" -d '{"email":"test@example.com", "password":"yourpassword"}'
+
+
+To login:
+curl -X POST http://localhost:3002/api/login -H "Content-Type: application/json" -d '{"email":"test@example.com", "password":"yourpassword"}'
+Test PUT Request
+
+To update a user by ID:
+curl -X PUT http://localhost:3002/api/users/<user_id> -H "Content-Type: application/json" -d '{"email":"newemail@example.com", "password":"newpassword"}'
+
+
+To delete a user by ID:
+curl -X DELETE http://localhost:3002/api/users/<user_id>
+
+
+To get a user by ID:
+curl -X GET http://localhost:3002/api/users/<user_id>
+
+
+Conclusion
+You should now be able to run the Health and Fitness Tracker backend and test various API endpoints. Make sure to check the console for any errors during the process.
+
+### Notes
+
+- Replace `<your-repo-url>` with the actual URL of your Git repository.
+- Update the placeholder `<user_id>` with actual user IDs when testing PUT and DELETE requests.
+- Ensure your MongoDB server is running before you start your application.
