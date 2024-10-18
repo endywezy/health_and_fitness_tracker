@@ -1,4 +1,8 @@
-### Instructions on how to get started with your backend project using Ubuntu 18.04 LTS and Node.js (version 12.x.x). This document will cover the necessary installations, how to run the project, and how to test the various HTTP methods.
+- Instructions on how to get started with your backend project 
+
+using Ubuntu 18.04 LTS and Node.js (version 12.x.x). 
+
+This document will cover the necessary installations, how to run the project, and how to test the various HTTP methods.
 
 # Health and Fitness Tracker Backend
 
