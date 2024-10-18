@@ -1,8 +1,8 @@
 - Instructions on how to get started with your backend project 
 
-using Ubuntu 18.04 LTS and Node.js (version 12.x.x). 
+Using Ubuntu 18.04 LTS and Node.js (version 12.x.x). 
 
-This document will cover the necessary installations, how to run the project, and how to test the various HTTP methods.
+This cover the necessary installations, how to run the project, and how to test 
 
 # Health and Fitness Tracker Backend
 
@@ -63,7 +63,7 @@ Install MongoDB
 
 Clone the repository containing the backend code:
 
-      ```bash
+
       git clone https://github.com/endywezy/health_and_fitness_tracker.git
       
       cd health_and_fitness_tracker
