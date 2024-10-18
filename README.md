@@ -4,7 +4,7 @@ Using Ubuntu 18.04 LTS and Node.js (version 12.x.x).
 
 This cover the necessary installations, how to run the project, and how to test 
 
-# Health and Fitness Tracker Backend
+# Health and Fitness Tracker Backend Only
 
 This is the backend for the Health and Fitness Tracker application built using Node.js and Express. It connects to a MongoDB database to manage user authentication and data.
 
