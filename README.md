@@ -101,45 +101,36 @@ Test GET Request
 
 **To retrieve the welcome message:**
 
-      ```bash
       curl -X GET http://localhost:3002/api/
 
 
 To get all users:
 
-      ```bash
+      
       curl -X GET http://localhost:3002/api/users
-
-
-      Test POST Request
 
 To register a new user:
 
-      ```bash
       curl -X POST http://localhost:3002/api/register -H "Content-Type: application/json" -d '{"email":"test@example.com", "password":"yourpassword"}'
 
 
 To login:
 
-      ```bash
       curl -X POST http://localhost:3002/api/login -H "Content-Type: application/json" -d '{"email":"test@example.com", "password":"yourpassword"}'
 
-    Test PUT Request
 
 To update a user by ID:
 
-      ```bash
       curl -X PUT http://localhost:3002/api/users/<user_id> -H "Content-Type: application/json" -d '{"email":"newemail@example.com", "password":"newpassword"}'
 
 
 To delete a user by ID:
 
-      ```bash
       - curl -X DELETE http://localhost:3002/api/users/<user_id>
 
 
 To get a user by ID:
-      ```bash
+
       curl -X GET http://localhost:3002/api/users/<user_id>
 
 
