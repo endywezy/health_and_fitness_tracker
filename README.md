@@ -1,6 +1,6 @@
-- Instructions on how to get started with your backend project 
+# Instructions on how to get started with your backend project 
 
-Using Ubuntu 18.04 LTS and Node.js (version 12.x.x). 
+## Using Ubuntu 18.04 LTS and Node.js (version 12.x.x). 
 
 This cover the necessary installations, how to run the project, and how to test 
 
