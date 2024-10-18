@@ -1,15 +1,10 @@
-#!/usr/bin/node
-
 const mongoose = require('mongoose');
 
 const exerciseSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   type: { type: String, required: true },
-  duration: { type: Number, required: true },
-  date: { type: Date, default: Date.now },
-});
+  duration: { type: Number, required: true }, // in minutes
+  calories: { type: Number, required: true },
+}, { timestamps: true });
 
-// Avoid overwriting the Exercise model
-const Exercise = mongoose.models.Exercise || mongoose.model('Exercise', exerciseSchema);
-
-module.exports = Exercise;
+module.exports = mongoose.model('Exercise', exerciseSchema);

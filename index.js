@@ -1,31 +1,25 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const authRoutes = require('./routes/auth');
-const exerciseRoutes = require('./routes/exercises');
-const goalRoutes = require('./routes/goals');
+const bodyParser = require('body-parser');
+
+// Import routes
+const exerciseRoutes = require('./routes/exercise');
 
 const app = express();
 const PORT = 3000;
 
-app.use(express.json());
+// Middleware
+app.use(bodyParser.json());
 
-// Register Routes
-app.use('/auth', authRoutes); // User authentication routes
-app.use('/exercises', exerciseRoutes); // Exercise management routes
-app.use('/goals', goalRoutes); // Goal management routes
-
-app.get('/', (req, res) => {
-  res.send('Welcome to the Health and Fitness Tracker API!');
-});
+// Routes
+app.use('/exercise', exerciseRoutes);
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/yourDB', {
-  // MongoDB connection options (no deprecated options needed for newer Mongoose versions)
-}).then(() => {
-  console.log('MongoDB connected');
-}).catch(err => console.log(err));
+mongoose.connect('mongodb://localhost:27017/health_tracker')
+  .then(() => console.log('MongoDB connected'))
+  .catch((err) => console.log(err));
 
-// Start server
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
