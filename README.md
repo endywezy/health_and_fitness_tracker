@@ -82,7 +82,6 @@ Create a .env file in the root of the project directory and add your MongoDB con
 
 - For example:
 
-      Copy
       MONGO_URI=mongodb://localhost:27017/health_tracker
       JWT_SECRET=your_jwt_secret
 
